@@ -1,0 +1,31 @@
+Settings and Prerequisites:
+
+Embedded Terminal:
+
+	sudo apt-get install rdesktop
+
+	When using:
+		python LoginUI.py
+
+Remote Desktop Server:
+
+	sudo apt-get install xrdp xfce4 vnc4server
+	touch ~/.xsession
+	echo "xfce4-session" > ~/.xsession
+	sudo vim /etc/xrdp/startwm.sh
+	Insert the line: 
+		xfce4-session
+	before ./etc/X11/Xsession
+	sudo service xrdp restart
+	Start the service:
+		sudo python linux_desktop_server.py
+	Shutdown:
+		sudo sh shut_down_the_server.sh
+
+Authentication Server:
+	pip install pycrypto
+
+	Start the service:
+		python authentication_server.py
+	Shutdown:
+		sh shut_down_the_server.sh
